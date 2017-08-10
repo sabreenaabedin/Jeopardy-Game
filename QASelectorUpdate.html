@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Q&A Selector</title>
+  
+  <script language="JavaScript">
+        function defaultDisplay() {
+        	document.getElementById("1").style.visibility = "hidden";	
+  			document.getElementById("2").style.visibility = "hidden";	
+  			document.getElementById("3").style.visibility = "hidden";	
+  			document.getElementById("4").style.visibility = "hidden";	
+  			document.getElementById("5").style.visibility = "hidden";	
+        }
+        
+  		function cat1(){
+  			document.getElementById("1").style.visibility = "visible";	
+  			document.getElementById("2").style.visibility = "hidden";	
+  			document.getElementById("3").style.visibility = "hidden";	
+  			document.getElementById("4").style.visibility = "hidden";	
+  			document.getElementById("5").style.visibility = "hidden";	
+  		}
+  		function cat2(){
+  			document.getElementById("1").style.visibility = "visible";	
+  			document.getElementById("2").style.visibility = "visible";	
+  			document.getElementById("3").style.visibility = "hidden";	
+  			document.getElementById("4").style.visibility = "hidden";	
+  			document.getElementById("5").style.visibility = "hidden";	
+  		}
+  		function cat3(){
+  			document.getElementById("1").style.visibility = "visible";	
+  			document.getElementById("2").style.visibility = "visible";	
+  			document.getElementById("3").style.visibility = "visible";	
+  			document.getElementById("4").style.visibility = "hidden";	
+  			document.getElementById("5").style.visibility = "hidden";	
+  		}
+  		function cat4(){
+  			document.getElementById("1").style.visibility = "visible";	
+  			document.getElementById("2").style.visibility = "visible";	
+  			document.getElementById("3").style.visibility = "visible";	
+  			document.getElementById("4").style.visibility = "visible";	
+  			document.getElementsById("5").style.visibility = "hidden";	
+  			document.getElementsById("5a").style.visibility = "hidden";	
+  		}
+  		function cat5(){
+  			document.getElementById("1").style.visibility = "visible";	
+  			document.getElementById("2").style.visibility = "visible";	
+  			document.getElementById("3").style.visibility = "visible";	
+  			document.getElementById("4").style.visibility = "visible";	
+  			document.getElementById("5").style.visibility = "visible";	
+  		}
+  function update(){
+  		if(document.getElementById("1").style.visibility == "visible"){
+  			document.getElementById("categorychoices").innerHTML = "<input type=\"radio\" name=\"cat\" value= \"1\"> 1"; 
+  		}
+  	}
+  			
+  		
+  </script>
+  
+</head>
+<body onLoad="defaultDisplay()">
+<h1 align ="center"> Question/Answer Selector </h1>
+
+<!-- new code --> 
+Choose the number of categories: 
+
+Select how many categories you have:  
+ <br>
+ <input type="radio" name="category" value= "cat1" onclick = "cat1()"> 1 
+ <input type="radio" name="category" value= "cat2" onclick = "cat2()"> 2
+ <input type="radio" name="category" value= "cat3" onclick = "cat3()"> 3
+ <input type="radio" name="category" value= "cat4" onclick = "cat4()"> 4
+ <input type="radio" name="category" value= "cat5" onclick = "cat5()"> 5
+ 
+<div id = "1">
+Category 1: <input type="text" name="category1">
+</div>
+<div id = "2">
+Category 2: <input type="text" name="category2" id= "2"> 
+</div>
+<div id = "3">
+Category 3: <input type="text" name="category3" id= "3">
+</div>
+<div id = "4">
+Category 4: <input type="text" name="category4" id= "4"> 
+</div>
+<div id = "5">
+Category 5: <input type="text" name="category5" id= "5"> 
+</div>
+
+<input type="button" value="Update" onClick= "update()"/>
+<br>
+<table border="1" cellspacing="2" cellpadding="5" width="100%" align ="center"> 
+  <tr>      
+    <th>Question</th>      
+    <th>Row</th> 
+    <th>Column</th>
+    <th>Score</th> 
+    <th>Category</th>
+  </tr>  
+  <tr>
+   <td>Question</td>      
+    <td>Row</td> 
+    <td>Column</td>
+    <td>Score</td> 
+    <td>Category
+    <div id = "categorychoices">
+    	<div id = 1>
+		 <input type="radio" name="choice" value= "cat1"> 1 
+		 </div>
+		<div id = "2">
+		 <input type="radio" name="choice" value= "cat2"> 2
+		 </div>
+		<div id = "3">
+		 <input type="radio" name="choice" value= "cat3"> 3
+		 </div>
+		<div id = "4">
+		 <input type="radio" name="choice" value= "cat4"> 4
+		 </div>
+		<div id = "5">
+		 <input type="radio" name="choice" value= "cat5"> 5
+		</div>
+    </div>
+    </td>
+  </tr> 
+</table> 
+</body>

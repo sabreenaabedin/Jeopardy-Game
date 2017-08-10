@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jeopardy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script language="JavaScript">
+      function showtruefalse(){
+        document.getElementById("multchoice").style.visibility = "hidden";
+        document.getElementById("shortanswer").style.visibility = "hidden";
+        document.getElementById("truefalse").style.visibility = "visible";
+    }
+    function showmultchoice(){
+        document.getElementById("multchoice").style.visibility = "visible";
+        document.getElementById("shortanswer").style.visibility = "hidden";
+        document.getElementById("truefalse").style.visibility = "hidden";
+    }
+
+    function showshortanswer(){
+        document.getElementById("multchoice").style.visibility = "hidden";
+        document.getElementById("shortanswer").style.visibility = "visible";
+        document.getElementById("truefalse").style.visibility = "hidden";
+    }
+
+
+    function defaultLoad() {
+        if (1==2) {
+            showtruefalse();
+        } else if (2==3) {
+            showmultchoice();
+        } else {
+            showshortanswer();
+        }
+    }
+
+    function checkfields(){
+        if(document.getElementById("masterquestion").value == '')
+            alert("Please enter question");
+
+        if(document.getElementById("shortanswer").style.visibility == "visible"){
+            if(document.getElementById("shortanswerquestion").value.length == 0){
+                alert("Field is empty");
+            }
+        }
+
+        if(document.getElementById("truefalse").style.visibility == "visible"){
+
+          if(document.getElementById("true").checked == false && document.getElementById("false").checked == false )
+             alert("Choose an answer");
+     }
+
+     if(document.getElementById("multchoice").style.visibility == "visible"){
+        if(document.getElementById("qA").value.length == 0 && document.getElementById("qB").value.length == 0 && document.getElementById("qC").value.length == 0 && document.getElementById("qD").value.length == 0)
+            alert("please provide 4 answers");
+
+    }
+
+}
+
+    function clearFields() {
+            document.getElementById("masterquestion").value = '';
+            document.getElementById("shortanswerquestion").value = '';
+            document.getElementById("true").checked = false;
+            document.getElementById("false").checked = false;
+            document.getElementById("qA").value = '';
+            document.getElementById("qB").value = '';
+            document.getElementById("qC").value = '';
+            document.getElementById("qD").value = '';
+	    document.getElementById("multanswer").value = '';
+    }
+
+    function setFocus(){
+        document.getElementById("masterquestion").focus();
+    }
+
+
+
+</script>
+<style>
+#
+
+
+</style>
+</head>
+
+<body onLoad="defaultLoad();setFocus()" style="margins:10px; background:grey;color:white">
+
+    <center>
+        <h1> Jeopardy </h1>
+        <p> Henry Welsh hrw9sd
+            <br/>
+            Sabreena Abedin sa7cx
+        </p>
+        </center>
+    <form method="post" action="formHandler.php">
+    <div style="background: lightgrey; padding:10px;color:black">
+        <h2 > Choose Question Type </h2>
+
+
+        <input type="radio" name="questiontype" value= "short answer" onclick = "showshortanswer()" checked> Short Answer
+        <input type="radio" name="questiontype" value = "multiple choice" onclick = "showmultchoice()"> Multiple Choice
+        <input type="radio" name="questiontype" value = "true or false" onclick="showtruefalse()"> True/False
+
+        <br/>
+        <br/>
+
+    </div>
+    </br>
+    <div style="background: lightgrey; padding:10px;color:black">
+        <h2> Enter Question </h2>
+        Question: <br/>
+        <input type="text" name="masterquestion" id = "masterquestion" style="width: 25%;"/> <br/>
+        <br/>
+
+    </div>
+    </br>
+    <div style="background:lightgrey; padding:10px;color:black">
+       <h2> Enter Answer </h2>
+       <div id= "multchoice">
+        Option A: <input type="text" name="qA" id="qA" style="width: 25%;"/> <br/>
+        Option B: <input type="text" name="qB" id="qB" style="width: 25%;"/> <br/>
+        Option C: <input type="text" name="qC" id="qC" style="width: 25%;"/> <br/>
+        Option D: <input type="text" name="qD" id="qD" style="width: 25%;"/> <br/>
+        Select the correct answer:
+        <select name="answerchoice" id= "multanswer">
+          <option value = ""> -- select an option -- </option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+      </select>
+  </div>
+
+  <div id = "truefalse">
+    Select the correct answer:
+    <input type="radio" name="trueorfalse" value="true" id = "true"> True
+    <input type="radio" name="trueorfalse" value="false" id = "false"> False
+</div>
+
+<div id = "shortanswer">
+   Answer: <input type="text" name="shortanswerquestion" id="shortanswerquestion" style="width: 25%;"/> <br/>
+   <br/>
+</div>
+</div>
+</br>
+<div style="background: lightgrey; padding:10px;color:black">
+    <center> <button onClick="checkfields()" type="submit"> Submit </button> </center>
+
+</div>
+</form>
+<div style="background: lightgrey; padding:10px;color:black">
+    <center><button onClick="clearFields()" type="">Clear</button></center>
+</div>
+</body>
+</html>
